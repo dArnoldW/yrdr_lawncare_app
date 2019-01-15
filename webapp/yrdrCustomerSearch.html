@@ -1,0 +1,132 @@
+<div class="container">
+<img src="images/yrdrLogo2.png"/ class="centered-image"></br></br>
+	<div ng-show="showSearch">
+	
+		<table class="table table-hover table-bordered">
+			<tr>
+				
+				<td colspan="3" class='text-center success'>
+					<span id="search">Search</span>
+					<input type="text" maxlength="15" ng-model="searchValue">
+				</td>
+				<td colspan="9" class='text-center success'>
+					<h4>YRDR Customers</h4>
+				</td>
+			</tr>
+			<tr class='success'>
+				<th class="text-center col-sm-1">ID</th>
+				<th class="text-center col-sm-1">First Name</th>
+				<th class="text-center col-sm-1">Last Name</th>
+				<th class="text-center col-sm-2">Address</th>
+				<th class="text-center col-sm-1">City</th>
+				<th class="text-center col-sm-1">State</th>
+				<th class="text-center col-sm-2">Phone Number</th>
+				<th class="text-center col-sm-2">E-mail</th>
+				<th class="text-center col-sm-1">Service Day</th>
+			</tr>
+			<tr ng-repeat="customer in customers | filter : searchValue" ng-click="updateCustomer(customer)">
+				<td class="col-sm-1">{{customer.id}}</td>
+				<td class="col-sm-1">{{customer.firstName}}</td>
+				<td class="col-sm-1">{{customer.lastName}}</td>
+				<td class="col-sm-2">{{customer.address}}</td>
+				<td class="col-sm-1">{{customer.city}}</td>
+				<td class="col-sm-1">{{customer.state}}</td>
+				<td class="col-sm-2">{{customer.phoneNumber}}</td>
+				<td class="col-sm-2">{{customer.eMail}}</td>
+				<td class="col-sm-1">{{customer.serviceDay}}</td>
+			</tr>
+			<tr>		
+				<td colspan="12" class='text-center success'>				
+					<input type="radio" ng-model='nav.button' value="update"/>Update					
+					<input type="radio" ng-model='nav.button' value="text"/>Send Text				
+				</td>
+			</tr>
+			<tr>
+				<td colspan="12" class='text-center success'>
+					<h4>select a customer and function</h4>
+				</td>				
+			</tr>
+			<tr>
+			<td colspan="12" class="text-center success">
+					<button type="button" ng-click="getCustomers()" 
+						class="btn btn-success"> <span class="glyphicon glyphicon-refresh"></span>
+						Refresh Customers
+					</button>
+				</td>
+				</tr>	
+		</table>
+	</div>
+	<form name="updateForm">
+	<div ng-show="showEditDelete">	
+			
+		<h5>Press 'Update' to save Customer changes.</h5>
+		<h5>Press 'Delete' to delete Customer.</h5>
+		<h5>Press 'Cancel' to return to Customer search.</h5>		
+		
+		<div class="header">
+			<button type="button" ng-click="putCustomer(customerToUpdate)" ng-disabled="isUpdateButtonDisabled"
+				class="btn btn-success"> <span class="glyphicon glyphicon-edit"></span>Update</button>
+			<button type="button" ng-click="deleteCustomer(customerToUpdate.id)" ng-disabled="isDeleteButtonDisabled" 
+				class="btn btn-danger"> <span class="glyphicon glyphicon-edit"></span>Delete</button>	
+			<button type="button" ng-click="returnToSearch()" 
+				class="btn btn-warning"> <span class="glyphicon"></span>Cancel</button>					
+		</div>
+			
+			<br>
+			<table  class="table table-bordered small-table">						
+				<tr>							
+					<td><label for="id">ID:</label>
+						<span id="id" ng-bind="customerToUpdate.id"></span>
+					</td>
+				</tr>						
+				<tr>							
+					<td><label for="firstName">First Name:</label><br>
+						<input id="firstName" type="text" ng-model="customerToUpdate.firstName" size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="lastName">Last Name:</label><br>
+						<input id="lastName" type="text" ng-model="customerToUpdate.lastName" size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="address">Address:</label><br>
+						<input id="address" type="text" ng-model="customerToUpdate.address" size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="city">City:</label><br>
+						<input id="city" type="text" ng-model="customerToUpdate.city" size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="state">State:</label><br>
+						<input id="state" type="text" ng-model="customerToUpdate.state" size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="phoneNumber">Phone Number:</label><br>
+						<input id="phoneNumber" type="text" ng-model="customerToUpdate.phoneNumber" size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="eMail">E-mail:</label><br>
+						<input id="eMail" type="text" ng-model="customerToUpdate.eMail" size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="serviceDay">Service Day:</label><br>
+						<input id="serviceDay" type="text" ng-model="customerToUpdate.serviceDay" size=40/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p> <span class="text-warning" ng-bind="updateStatus"></span></p>
+					</td>	
+				</tr>																				
+			</table>				
+		<br>							
+	</div>
+	</form>
+	
+</div>

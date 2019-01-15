@@ -1,0 +1,193 @@
+<div class="w3-main w3-content w3-padding"
+	style="max-width: 1200px; margin-top: 0px">
+	<img src="images/yrdrLogo2.png"/ class="centered-image"></br></br>
+
+	<div class="w3-row-padding w3-padding-16 w3-center">
+		<div class="w3-quarter" >
+			<div class="box" ng-click="add(expenses[0])">
+			</br>					
+				<span class="boxFont">{{expenses[0].expenseName}}</span>
+					</br>
+					</br>
+					</br>
+						<img src="images/gascan.png">
+					</br>					
+					</br>					
+				 		<span class="boxFont" >{{expenses[0].expensePrice | currency}}</span>
+					</br>
+					</br>
+					</br>
+					</br>
+			</div>
+			<div>
+				<label class="switch" ng-click="updateExpense(expenses[0])">
+  					<input type="checkbox">
+ 					 <span class="slider round"></span>
+				</label>
+			</div>
+		</div>		
+		<div class="w3-quarter" >
+			<div class="box" ng-click="add(expenses[1])">
+			</br>					
+				<span class="boxFont">{{expenses[1].expenseName}}</span>
+					</br>
+					</br>
+						<img src="images/oilDrop.png"/>
+					</br>					
+					</br>
+				 		<span class="boxFont" >{{expenses[1].expensePrice | currency}}</span>
+					</br>
+					</br>
+					</br>
+					</br>
+			</div>
+			<div>
+				<label class="switch" ng-click="updateExpense(expenses[1])">
+  					<input type="checkbox">
+ 					 <span class="slider round"></span>
+				</label>
+			</div>
+		</div>
+		<div class="w3-quarter" >
+			<div class="box" ng-click="add(expenses[2])">
+			</br>					
+				<span class="boxFont">{{expenses[2].expenseName}}</span>
+					</br>
+					</br>
+						<img src="images/bag.png"/>
+					</br>					
+					</br>
+				 		<span class="boxFont" >{{expenses[2].expensePrice | currency}}</span>
+					</br>
+					</br>
+					</br>
+					</br>
+			</div>
+			<div>
+				<label class="switch" ng-click="updateExpense(expenses[2])">
+  					<input type="checkbox">
+ 					 <span class="slider round"></span>
+				</label>
+			</div>
+		</div>
+		<div class="w3-quarter" >
+			<div class="box" ng-click="add(expenses[3])">
+			</br>					
+				<span class="boxFont">{{expenses[3].expenseName}}</span>
+					</br>
+					</br>
+						<img src="images/string.png"/>
+					</br>					
+					</br>
+				 		<span class="boxFont" >{{expenses[3].expensePrice | currency}}</span>
+					</br>
+					</br>
+					</br>
+					</br>
+			</div>
+			<div>
+				<label class="switch" ng-click="updateExpense(expenses[3])">
+  					<input type="checkbox">
+ 					 <span class="slider round"></span>
+				</label>
+			</div>
+		</div>	
+	<div class="w3-row-padding w3-padding-16 w3-center">
+		<div class="w3-quarter" >
+			<div class="box" ng-click="add(expenses[4])">
+			</br>					
+				<span class="boxFont">{{expenses[4].expenseName}}</span>
+					</br>
+					</br>
+						<img src="images/parts.png"/>
+					</br>					
+					</br>
+				 		<span class="boxFont" >{{expenses[4].expensePrice | currency}}</span>
+					</br>
+					</br>
+					</br>
+					</br>
+			</div>
+			<div>
+				<label class="switch" ng-click="updateExpense(expenses[4])">
+  					<input type="checkbox">
+ 					 <span class="slider round"></span>
+				</label>
+			</div>
+		</div>
+		<div class="w3-quarter" >
+			<div class="box" ng-click="add(expenses[5])">
+			</br>					
+				<span class="boxFont">{{expenses[5].expenseName}}</span>
+					</br>
+					</br>
+						<img src="images/wrench.png"/>
+					</br>					
+					</br>
+				 		<span class="boxFont" >{{expenses[5].expensePrice | currency}}</span>
+					</br>
+					</br>
+					</br>
+					</br>
+			</div>
+			<div>
+				<label class="switch" ng-click="updateExpense(expenses[5])">
+  					<input type="checkbox">
+ 					 <span class="slider round"></span>
+				</label>
+			</div>
+		</div>
+		<div class="w3-quarter">
+			<div class="box"></div>
+		</div>		
+		<div class="w3-quarter">					
+			<div class="box" ng-click="putExpense(expenseToUpdate)" >
+			</br>			
+			<form>
+			</br>
+				<label for="expenseName" class="boxFont">Expense:</label></br>
+					<input type="text" id="expenseName" ng-model="expenseToUpdate.expenseName" width="20"/>
+					</br>
+					</br>			
+				<label for="expensePrice" class="boxFont">Price:</label></br>
+					<input type="number" min="1" max="200" id="expensePrice" ng-model="expenseToUpdate.expensePrice"/>							
+			</form>							
+			</div>
+			
+			</div>			
+		</div>		
+	</div>
+	<div>
+	 <section class="tableBorder">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in invoice.items">
+          <td><input type="text" ng-model="item.name" class="form-control" /></td>
+          <td><input type="text" ng-model="item.description" class="form-control" /></td>
+          <td><input type="number" ng-model="item.qty" class="form-control" /></td>
+          <td><input type="number" ng-model="item.price" class="form-control" /></td>
+          <td>{{item.qty * item.price | currency}} </td>
+          <td><button type="button" class="btn btn-danger" ng-click="remove($index)">Delete</button></td>
+        </tr>         
+        <tr>
+        <td><button type="button" class="btn btn-primary" ng-click="emailReceipt()">Save Total</button></td>
+          <td></td>
+          <td></td>
+          <td>Total : </td>
+          <td>{{total() | currency}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>	
+	</div>
+</div>

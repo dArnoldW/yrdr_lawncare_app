@@ -1,0 +1,64 @@
+<div class="container-fluid">			
+	
+	<h5>Please enter email subject and message.</h5>
+	<h5>Press 'Publish' to email customers.  Press 'Clear' to clear input.</h5>						
+		
+	<div class="header">
+		<button type="button" ng-click="emailCustomers()" 
+			ng-disabled="isEmailCustomersDisabled"
+			class="btn btn-success"> <span class="glyphicon glyphicon-edit"></span>Publish</button>	
+		<button type="button" ng-click="emailCustomersClear()" 						
+			class="btn btn-warning"> <span class="glyphicon"></span>Clear</button>					
+		<p> <span class="status" ng-bind="emailStatus"></span></p>		
+	</div>
+
+	<table class="table-bordered">
+		<tr>
+			<td>
+				<label>Subject:</label><br>
+				<input
+					type="text" required ng-model="emailSubject"
+					ng-minlength="5" ng-maxlength="40"/>				
+			</td>
+		</tr>
+		<tr>
+			<td><label>Content:</label><br>
+			 	<textarea
+					type="text" required ng-model="emailText"
+					ng-minlength="10" ng-maxlength="200"
+					rows="10" cols="50">
+				</textarea>				
+			</td>
+		</tr>
+	</table>
+	
+	<h5>Please enter phone number and message.</h5>
+	<h5>Press 'Send Text' to text this number.  Press 'Clear' to clear input.</h5>
+					
+	<div class="header">
+		<button type="button" ng-click="textCustomer()" 
+			class="btn btn-success"> <span class="glyphicon glyphicon-edit"></span>Send Text</button>	
+		<button type="button" ng-click="textCustomerClear()" 						
+			class="btn btn-warning"> <span class="glyphicon"></span>Clear</button>					
+		<p> <span class="warning" id="textStatusId" ng-bind="textStatus"></span></p>
+	</div>
+ 
+	<table class="table-bordered">
+		<tr>
+			<td>
+				<label>Number:</label><br>
+				 <input type="number" ng-model="textNumber" maxlength="14"/>				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Message:</label><br>
+			 	<textarea
+					type="text" required ng-model="textContent" maxlength="100"
+					rows="2" cols="50">
+			 	</textarea>
+			</td>
+		</tr>
+	</table>
+	
+</div>

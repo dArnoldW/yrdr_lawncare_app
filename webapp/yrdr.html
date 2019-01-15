@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>YRDR</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- AngularJS -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	
+<!-- AngularJS routing -->	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>	
+
+<script src="js/yrdr.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="css/yrdr.css">
+</head>
+<body ng-app="yrdrapp" ng-controller="yrdrcontroller">
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<p class="navbar-text">{{navName}}</p>
+		<ul class="nav navbar-nav">
+			<li><a href="#!yrdrcustomersearch">Customers</a></li>
+			<li><a href="#!yrdrcreatecustomer">+Customer</a></li>
+			<li><a href="#!yrdrprices">Pricing</a></li>
+			<li><a href="#!yrdrexpenses">Expenses</a></li>
+			<li><a href="#!yrdremail">E-mail + Text</a></li>
+			<li><a href="#!stacks">Stacks</a></li>
+		</ul>
+	</nav>
+
+	<br>
+	<br>
+
+	<div ng-view></div>
+</body>
+</html>

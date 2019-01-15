@@ -1,0 +1,59 @@
+<div class="container" > 
+<div ng-show="showSearch">
+		<table class="table table-hover table-bordered">
+			<tr>
+				<td colspan="2" class="text-center success">
+					<button type="button" ng-click="getJobs()"
+						class="btn btn-success">
+						<span class="glyphicon glyphicon-refresh"></span> Refresh Services
+					</button>
+				</td>
+				<td colspan="10" class='text-center success'>
+					<h4>Service Pricing</h4>
+				</td>
+			</tr>
+			<tr class='success'>
+				<th class="text-center col-sm-2">Service Id</th>
+				<th class="text-center col-sm-2">Service</th>
+				<th class="text-center col-sm-1">Service Price</th>				
+			</tr>
+			<tr ng-repeat="job in jobs" ng-click="add(job)">
+				<td class="col-sm-2">{{job.id}}</td>
+				<td class="col-sm-2">{{job.jobName}}</td>
+				<td class="col-sm-1">{{job.jobPrice}}</td>				
+			</tr>
+		</table>
+  <section class="row" >
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in invoice.items">
+          <td><input type="text" ng-model="item.name" class="form-control" /></td>
+          <td><input type="text" ng-model="item.description" class="form-control" /></td>
+          <td><input type="number" ng-model="item.qty" class="form-control" /></td>
+          <td><input type="number" ng-model="item.price" class="form-control" /></td>
+          <td>{{item.qty * item.price | currency}} </td>
+          <td><button type="button" class="btn btn-danger" ng-click="remove($index)">Delete</button></td>
+        </tr>
+         
+        <tr>
+        <td><button type="button" class="btn btn-primary" ng-click="emailReceipt()">Send Receipt</button></td>
+          <td></td>
+          <td></td>
+          <td>Total : </td>
+          <td>{{total() | currency}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+</div>

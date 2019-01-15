@@ -1,0 +1,70 @@
+ <div class="container">
+ <img src="images/yrdrLogo2.png"/ class="centered-image"></br></br>	
+	<form name="createForm">	
+	<div>	
+			
+		<h5>Press 'Save' to save new customer.</h5>
+		<h5>Press 'Clear' to enter another customer.</h5>		
+		
+		<div class="header">
+			<button type="button" ng-click="postCustomer()" ng-disabled="!createForm.$valid || successfulInsert"
+				class="btn btn-success"> 
+				Save
+			</button>
+			<button type="button" ng-click="clearCustomer()" 
+				class="btn btn-success"> 
+				Clear
+			</button>											
+		</div>			
+			<br>
+			<table  class="table table-bordered small-table"  >									
+				<tr>							
+					<td><label for="firstName">First Name:</label><br>
+						<input id="firstName" type="text" ng-model="newCustomer.firstName" required size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="lastName">Last Name:</label><br>
+						<input id="lastName" type="text" ng-model="newCustomer.lastName" required size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="address">Address:</label><br>
+						<input id="address" type="text" ng-model="newCustomer.address" required size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="city">City:</label><br>
+						<input id="city" type="text" ng-model="newCustomer.city" required size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="state">State:</label><br>
+						<input id="state" type="text" ng-model="newCustomer.state" required size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="phoneNumber">Phone Number:</label><br>
+						<input id="phoneNumber" type="text" ng-model="newCustomer.phoneNumber" required size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="eMail">E-mail:</label><br>
+						<input id="eMail" type="text" ng-model="newCustomer.eMail" required size=40/>
+					</td>
+				</tr>
+				<tr>							
+					<td><label for="serviceDay">ServiceDay:</label><br>
+						<input id="serviceDay" type="text" ng-model="newCustomer.serviceDay" required size=40/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p> <span class="text-warning" ng-bind="createStatus"></span></p>
+					</td>
+				</tr>
+		</table>						
+		<br>							
+	</div>
+	</form>
+</div>	
